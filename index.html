@@ -1,185 +1,189 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oferta Final: Mentoria Secreta do Jurista</title>
-    <!-- Carregamento do Tailwind CSS para um design moderno e responsivo -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Definindo a paleta Black & White e a tipografia Inter */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000; /* Fundo Preto Total */
-            color: #FFFFFF; /* Texto Principal Branco */
-        }
-        
-        /* Estilo para a caixa de urgência (Contraste Máximo) */
-        .urgency-box {
-            border: 2px solid #FF0000; /* Borda Vermelha Forte */
-            background-color: #0d0d0d; /* Cinza Escuro quase Preto */
-            animation: pulse-border 2s infinite;
-        }
-
-        /* Animação para o efeito de pulso na borda */
-        @keyframes pulse-border {
-            0%, 100% {
-                border-color: #FF0000;
-                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
-            }
-            50% {
-                border-color: #CC0000;
-                box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
-            }
-        }
-
-        /* Estilo para a tarja de preço (Alto Contraste B&W) */
-        .price-tag {
-            background-color: #FFFFFF; /* Fundo Branco */
-            color: #000000; /* Texto Preto */
-            border: 4px solid #000000;
-        }
-
-        /* AJUSTES PARA O BOTÃO KIWIFY (PARA EVITAR CONFLITO DE CSS E MANTER O VISUAL) */
-        /* Forçando o estilo do botão */
-        #kiwify-upsell-trigger-PnHJKm1 {
-            background-color: #2ECC70 !important; /* Verde Principal */
-            color: #FFFFFF !important; /* Texto Branco */
-            font-weight: 900 !important;
-            border: 2px solid #2ECC70 !important;
-            font-size: 1.5rem !important; 
-            box-shadow: 0 5px 20px rgba(46, 204, 112, 0.7) !important; /* Sombra Verde Forte */
-            transition: all 0.2s;
-            width: 100%;
-            padding: 16px 20px;
-        }
-
-        /* Efeito de hover e clique */
-        #kiwify-upsell-trigger-PnHJKm1:hover {
-            transform: scale(1.02); 
-            background-color: #27AE60 !important; /* Verde um pouco mais escuro no hover */
-            border-color: #27AE60 !important;
-        }
-
-        /* Estilo customizado para o link de recusa */
-        #kiwify-upsell-cancel-trigger-PnHJKm1 {
-            color: #AAAAAA; /* Cinza Claro */
-            transition: color 0.3s;
-            font-size: 1rem !important; 
-        }
-
-        #kiwify-upsell-cancel-trigger-PnHJKm1:hover {
-            color: #FF0000; /* Vermelho no hover para reforçar a perda */
-        }
-    </style>
-</head>
-
-<body class="min-h-screen flex items-start md:items-center justify-center py-10 px-4">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oferta Final: Mentoria Secreta do Jurista</title>
+<!-- Carregamento do Tailwind CSS para um design moderno e responsivo -->
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+/* Definindo a paleta Black & White e a tipografia Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #000000; /* Fundo Preto Total */
+        color: #FFFFFF; /* Texto Principal Branco */
+    }
     
-    <!-- RESPONSIVIDADE: Max-width ajustada para desktop (lg:max-w-xl xl:max-w-2xl) -->
-    <div class="max-w-md lg:max-w-xl xl:max-w-2xl w-full bg-gray-900/50 backdrop-blur-sm shadow-2xl rounded-xl p-6 md:p-8 border border-white/20">
+    /* Estilo para a caixa de urgência (Contraste Máximo) */
+    .urgency-box {
+        border: 2px solid #FF0000; /* Borda Vermelha Forte */
+        background-color: #0d0d0d; /* Cinza Escuro quase Preto */
+        animation: pulse-border 2s infinite;
+    }
 
-        <!-- BLOCO DE ALERTA DE URGÊNCIA -->
-        <div class="urgency-box p-3 rounded-lg mb-6 text-center uppercase font-black text-sm md:text-xl tracking-wider text-white">
-            <span class="animate-pulse">🛑 PARE: VOCÊ TEM 1 MINUTO PARA MUDAR DE NÍVEL</span>
+    /* Animação para o efeito de pulso na borda */
+    @keyframes pulse-border {
+        0%, 100% {
+            border-color: #FF0000;
+            box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+        }
+        50% {
+            border-color: #CC0000;
+            box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+        }
+    }
+
+    /* Estilo para a tarja de preço (Alto Contraste B&W) */
+    .price-tag {
+        background-color: #FFFFFF; /* Fundo Branco */
+        color: #000000; /* Texto Preto */
+        border: 4px solid #000000;
+    }
+
+    /* CORREÇÃO KIWIFY: Forçando o estilo do botão para manter o visual forte */
+    #kiwify-upsell-trigger-PnHJKm1 {
+        background-color: #2ECC70 !important; /* Verde Principal */
+        color: #FFFFFF !important; /* Texto Branco */
+        font-weight: 900 !important;
+        border: 2px solid #2ECC70 !important;
+        font-size: 1.5rem !important; 
+        box-shadow: 0 5px 20px rgba(46, 204, 112, 0.7) !important; /* Sombra Verde Forte */
+        transition: all 0.2s;
+        width: 100%; /* Garantindo largura total */
+        padding: 16px 20px;
+    }
+
+    /* Efeito de hover e clique no botão */
+    #kiwify-upsell-trigger-PnHJKm1:hover {
+        transform: scale(1.02); 
+        background-color: #27AE60 !important; /* Verde um pouco mais escuro no hover */
+        border-color: #27AE60 !important;
+    }
+
+    /* Estilo customizado para o link de recusa */
+    #kiwify-upsell-cancel-trigger-PnHJKm1 {
+        color: #AAAAAA; /* Cinza Claro */
+        transition: color 0.3s;
+        font-size: 1rem !important; 
+    }
+
+    #kiwify-upsell-cancel-trigger-PnHJKm1:hover {
+        color: #FF0000; /* Vermelho no hover para reforçar a perda */
+    }
+    
+    /* CORREÇÃO CRÍTICA PARA O MODAL KIWIFY (PARA FUNCIONAR NO GITHUB) */
+    /* Garante que o box-sizing não quebre a exibição do dropdown de parcelas */
+    .kiwify-modal * {
+        box-sizing: content-box !important;
+    }
+
+</style>
+
+</head>
+<body class="min-h-screen flex items-start md:items-center justify-center py-10 px-4">
+<!-- RESPONSIVIDADE: Max-width ajustada para desktop (lg:max-w-xl xl:max-w-2xl) -->
+<div class="max-w-md lg:max-w-xl xl:max-w-2xl w-full bg-gray-900/50 backdrop-blur-sm shadow-2xl rounded-xl p-6 md:p-8 border border-white/20">
+
+    <!-- BLOCO DE ALERTA DE URGÊNCIA -->
+    <div class="urgency-box p-3 rounded-lg mb-6 text-center uppercase font-black text-sm md:text-xl tracking-wider text-white">
+        <span class="animate-pulse">🛑 PARE: VOCÊ TEM 1 MINUTO PARA MUDAR DE NÍVEL</span>
+    </div>
+
+    <!-- TÍTULO AGRESSIVO E FOCO -->
+    <h1 class="text-3xl md:text-4xl font-extrabold text-center mb-4 leading-snug">
+        Acabou de comprar o livro? Você merece dar esse próximo passo.
+    </h1>
+    <h2 class="text-xl text-center mb-6 font-light text-gray-400 border-b border-white/10 pb-4">
+        A Mentoria do Jurista é o Código Secreto que NUNCA PODE SER PUBLICADO em um livro.
+    </h2>
+
+    <!-- IMAGEM DO PRODUTO EMBEDADA (Restaurada) -->
+    <div class="text-center mb-6">
+        <img src="https://i.ibb.co/MqRVSnq/C-pia-de-Black-Photo-Minimalist-Teen-Fiction-Wattpad-Book-Cover-20251107-154120-0000.png" 
+             alt="Capa da Mentoria Secreta do Jurista" 
+             class="mx-auto w-3/4 max-w-[200px] h-auto rounded-lg shadow-2xl border border-white/50" />
+        <p class="text-gray-400 mt-2 text-sm uppercase font-semibold tracking-wider">Seu Upgrade Imediato</p>
+    </div>
+
+    <!-- A COPY PRINCIPAL (Restaurada) -->
+    <p class="text-gray-100 text-lg mb-4 leading-relaxed">
+        Se você leu o livro, você tem a teoria. Se você quer o Poder de Fato – as manobras e os atalhos que não se ensinam na faculdade – você precisa da minha voz.
+    </p>
+    <p class="text-xl font-bold text-red-500 mb-6 border-b border-red-700 pb-3">
+        O Livro me restringe. A Mentoria me liberta para te entregar as Táticas Proibidas de Mercado que transformam conhecimento em patrimônio, sem filtros.
+    </p>
+
+    <!-- SEÇÃO DE BENEFÍCIOS (Tópicos com Descrição) -->
+    <div class="space-y-6 mb-8">
+        
+        <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
+            <h3 class="text-xl font-bold text-white mb-2 flex items-center">
+                <span class="text-red-500 mr-2 text-2xl font-black">1.</span> Tire Absolutamente Todas as Suas Dúvidas
+            </h3>
+            <p class="text-gray-300 text-base">
+                Chega de incertezas. Você terá um canal direto para perguntar o que for preciso sobre a carreira, finanças, clientes de alto risco e o mercado que o livro não pôde cobrir. Sua evolução será acelerada pela clareza.
+            </p>
         </div>
 
-        <!-- TÍTULO AGRESSIVO E FOCO -->
-        <h1 class="text-3xl md:text-4xl font-extrabold text-center mb-4 leading-snug">
-            Acabou de comprar o livro? Você merece dar esse próximo passo.
-        </h1>
-        <h2 class="text-xl text-center mb-6 font-light text-gray-400 border-b border-white/10 pb-4">
-            A Mentoria do Jurista é o Código Secreto que NUNCA PODE SER PUBLICADO em um livro.
-        </h2>
-
-        <!-- IMAGEM DO PRODUTO EMBEDADA -->
-        <div class="text-center mb-6">
-            <img src="https://i.ibb.co/MqRVSnq/C-pia-de-Black-Photo-Minimalist-Teen-Fiction-Wattpad-Book-Cover-20251107-154120-0000.png" 
-                 alt="Capa da Mentoria Secreta do Jurista" 
-                 class="mx-auto w-3/4 max-w-[200px] h-auto rounded-lg shadow-2xl border border-white/50" />
-            <p class="text-gray-400 mt-2 text-sm uppercase font-semibold tracking-wider">Seu Upgrade Imediato</p>
+        <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
+            <h3 class="text-xl font-bold text-white mb-2 flex items-center">
+                <span class="text-red-500 mr-2 text-2xl font-black">2.</span> Descubra os Segredos que Não Posso Contar Publicamente
+            </h3>
+            <p class="text-gray-300 text-base">
+                Existe um jogo de bastidores no mundo jurídico. Aqui, eu revelo as táticas antiéticas, mas legais, as falhas de sistema e as manobras que apenas os juristas mais bem-sucedidos ousam usar para garantir o resultado e o pagamento.
+            </p>
         </div>
 
-        <!-- A COPY PRINCIPAL -->
-        <p class="text-gray-100 text-lg mb-4 leading-relaxed">
-            O livro já é seu e você já pode aproveitar tudo o que eu preparei pra você lá. Mas, se você quer o Poder de Fato – as manobras e os atalhos que não se ensinam na faculdade – você precisa da minha voz.
-        </p>
-        <p class="text-xl font-bold text-red-500 mb-6 border-b border-red-700 pb-3">
-            O Livro me restringe. A Mentoria me liberta para te entregar as Táticas Proibidas de Mercado que transformam conhecimento em patrimônio, sem filtros.
-        </p>
+        <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
+            <h3 class="text-xl font-bold text-white mb-2 flex items-center">
+                <span class="text-red-500 mr-2 text-2xl font-black">3.</span> Tenha Acesso a Alguém que Já Faturou MUITO
+            </h3>
+            <p class="text-gray-300 text-base">
+                Meu faturamento não é segredo para quem está na mentoria. Obtenha a visão de quem está no topo e modele os caminhos que realmente geram riqueza e autoridade. Pare de tentar e comece a replicar o sucesso comprovado.
+            </p>
+        </div>
+    </div>
 
-        <!-- SEÇÃO DE BENEFÍCIOS (Tópicos com Descrição) -->
-        <div class="space-y-6 mb-8">
+    <!-- BLOCO DE PREÇO E AÇÃO (Alto impacto) -->
+    <div class="bg-gray-800 p-6 rounded-lg mb-8 shadow-xl border-4 border-white">
+        <p class="text-center text-lg font-bold mb-3 text-gray-400 line-through">PREÇO EXCLUSIVO INICIAL: R$ 497,00</p>
+        <div class="price-tag p-3 rounded-md text-center mb-4">
+            <p class="text-2xl font-black uppercase tracking-widest">SUA OFERTA HOJE:</p>
+            <!-- Tamanho de preço ajustado para 4xl -->
+            <p class="text-4xl font-black uppercase tracking-widest">R$ 297,00</p>
+            <p class="text-sm font-semibold mt-2">É a sua ÚNICA e Última Chance de Acesso com este desconto.</p>
+        </div>
+        
+        <!-- SEU CÓDIGO SNIPPET DA KIWIFY (MANTIDO E FUNCIONAL) -->
+        <div style="text-align:center" id="kiwify-upsell-PnHJKm1" data-upsell-url="" data-downsell-url="">
             
-            <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
-                <h3 class="text-xl font-bold text-white mb-2 flex items-center">
-                    <span class="text-red-500 mr-2 text-2xl font-black">1.</span> Tire Absolutamente Todas as Suas Dúvidas
-                </h3>
-                <p class="text-gray-300 text-base">
-                    Chega de incertezas. Você terá um canal direto para perguntar o que for preciso sobre a carreira, finanças, clientes de alto risco e o mercado que o livro não pôde cobrir. Sua evolução será acelerada pela clareza.
-                </p>
-            </div>
-
-            <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
-                <h3 class="text-xl font-bold text-white mb-2 flex items-center">
-                    <span class="text-red-500 mr-2 text-2xl font-black">2.</span> Descubra os Segredos que Não Posso Contar Publicamente
-                </h3>
-                <p class="text-gray-300 text-base">
-                    Existe um jogo de bastidores no mundo jurídico. Aqui, eu revelo as táticas antiéticas, mas legais, as falhas de sistema e as manobras que apenas os juristas mais bem-sucedidos ousam usar para garantir o resultado e o pagamento.
-                </p>
-            </div>
-
-            <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
-                <h3 class="text-xl font-bold text-white mb-2 flex items-center">
-                    <span class="text-red-500 mr-2 text-2xl font-black">3.</span> Tenha Acesso a Alguém que Já Faturou MUITO
-                </h3>
-                <p class="text-gray-300 text-base">
-                    Meu faturamento não é segredo para quem está na mentoria. Obtenha a visão de quem está no topo e modele os caminhos que realmente geram riqueza e autoridade. Pare de tentar e comece a replicar o sucesso comprovado.
-                </p>
-            </div>
-        </div>
-
-        <!-- BLOCO DE PREÇO E AÇÃO (Alto impacto) -->
-        <div class="bg-gray-800 p-6 rounded-lg mb-8 shadow-xl border-4 border-white">
-            <p class="text-center text-lg font-bold mb-3 text-gray-400 line-through">PREÇO EXCLUSIVO INICIAL: R$ 497,00</p>
-            <div class="price-tag p-3 rounded-md text-center mb-4">
-                <p class="text-2xl font-black uppercase tracking-widest">SUA OFERTA HOJE:</p>
-                <!-- Tamanho de preço ajustado para 4xl -->
-                <p class="text-4xl font-black uppercase tracking-widest">R$ 297,00</p>
-                <p class="text-sm font-semibold mt-2">É a sua ÚNICA e Última Chance de Acesso com este desconto.</p>
-            </div>
+            <!-- BOTÃO DE ACEITAÇÃO VERDE -->
+            <button id="kiwify-upsell-trigger-PnHJKm1" 
+                style="background-color:#2ECC70;padding:16px 20px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #2ECC70;font-size:20px; width: 100%;"
+                onclick="this.innerText='LIBERANDO SEU ACESSO...'">
+                Sim, eu quero descobrir os segredos que não podem ser escritos no papel
+            </button>
             
-            <!-- SEU CÓDIGO SNIPPET DA KIWIFY (DE VOLTA AO ORIGINAL COM ESTILOS INJETADOS) -->
-            <div style="text-align:center" id="kiwify-upsell-PnHJKm1" data-upsell-url="" data-downsell-url="">
-                
-                <!-- BOTÃO DE ACEITAÇÃO VERDE: O estilo é forçado no bloco <style> -->
-                <button id="kiwify-upsell-trigger-PnHJKm1" 
-                    style="cursor:pointer; font-weight:600; border-radius:4px; font-size:20px;"
-                    onclick="this.innerText='LIBERANDO SEU ACESSO...'">
-                    Sim, eu quero descobrir os segredos que não podem ser escritos no papel
-                </button>
-                
-                <div id="kiwify-upsell-cancel-trigger-PnHJKm1" 
-                    style="margin-top:1rem;cursor:pointer;text-decoration:underline;font-family:sans-serif;">
-                    Não, eu gostaria de recusar essa oferta (E contentar-me com a informação pública)
-                </div>
+            <div id="kiwify-upsell-cancel-trigger-PnHJKm1" 
+                style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">
+                Não, eu gostaria de recusar essa oferta (E contentar-me com a informação pública)
             </div>
-            <!-- FIM DO CÓDIGO KIWIFY -->
-
         </div>
-
-        <!-- FOOTER DE URGÊNCIA FINAL -->
-        <p class="text-center text-red-600 text-sm font-bold mt-4">
-            Se você recusar agora, esta Mentoria jamais será oferecida neste valor exclusivo. **A decisão é sua e deve ser AGORA.**
-        </p>
+        <!-- FIM DO CÓDIGO KIWIFY -->
 
     </div>
 
-    <!-- Script Kiwify (MANTIDO NO FINAL) -->
-    <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+    <!-- FOOTER DE URGÊNCIA FINAL -->
+    <p class="text-center text-red-600 text-sm font-bold mt-4">
+        Se você recusar agora, esta Mentoria jamais será oferecida neste valor exclusivo. **A decisão é sua e deve ser AGORA.**
+    </p>
+
+</div>
+
+<!-- Script Kiwify (MANTIDO NO FINAL) -->
+<script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
 
 </body>
-</html>
-
+    </html>
+    
