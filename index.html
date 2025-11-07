@@ -87,7 +87,8 @@
 
     <!-- BLOCO DE ALERTA DE URGÊNCIA -->
     <div class="urgency-box p-3 rounded-lg mb-6 text-center uppercase font-black text-sm md:text-xl tracking-wider text-white">
-        <span class="animate-pulse">🛑 PARE: VOCÊ TEM 1 MINUTO PARA MUDAR DE NÍVEL</span>
+        <!-- ALTERAÇÃO SOLICITADA: DE "1 MINUTO" PARA "3 MINUTOS" -->
+        <span class="animate-pulse">🛑 PARE: VOCÊ TEM 3 MINUTOS PARA MUDAR DE NÍVEL</span>
     </div>
 
     <!-- TÍTULO AGRESSIVO E FOCO -->
@@ -158,15 +159,15 @@
         <!-- SEU CÓDIGO SNIPPET DA KIWIFY (MANTIDO E FUNCIONAL) -->
         <div style="text-align:center" id="kiwify-upsell-PnHJKm1" data-upsell-url="" data-downsell-url="">
             
-            <!-- BOTÃO DE ACEITAÇÃO VERDE -->
+            <!-- BOTÃO DE ACEITAÇÃO VERDE: O estilo é forçado no bloco <style> -->
             <button id="kiwify-upsell-trigger-PnHJKm1" 
-                style="background-color:#2ECC70;padding:16px 20px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #2ECC70;font-size:20px; width: 100%;"
+                style="cursor:pointer; font-weight:600; border-radius:4px; font-size:20px;"
                 onclick="this.innerText='LIBERANDO SEU ACESSO...'">
                 Sim, eu quero descobrir os segredos que não podem ser escritos no papel
             </button>
             
             <div id="kiwify-upsell-cancel-trigger-PnHJKm1" 
-                style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">
+                style="margin-top:1rem;cursor:pointer;text-decoration:underline;font-family:sans-serif;">
                 Não, eu gostaria de recusar essa oferta (E contentar-me com a informação pública)
             </div>
         </div>
@@ -184,6 +185,73 @@
 <!-- Script Kiwify (MANTIDO NO FINAL) -->
 <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
 
+<!-- JavaScript para o Timer de Urgência (AJUSTADO PARA 3 MINUTOS) -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const timerElement = document.getElementById('timer');
+        const expiryTime = localStorage.getItem('upsellExpiryTime');
+        let endTime;
+        
+        // Duração do timer: 3 minutos (3 * 60 * 1000 ms = 180000 ms)
+        const DURATION_MS = 3 * 60 * 1000;
+
+        if (expiryTime) {
+            endTime = parseInt(expiryTime);
+            
+            // Se a expiração salva for menor que a duração de 3 minutos, atualiza para 3 minutos
+            // Isso garante que o timer sempre comece em 3 minutos na primeira visita
+            const timePassed = Date.now() - endTime;
+            if (timePassed > 0 && timePassed < DURATION_MS) {
+                // Se o tempo passou e o tempo restante é maior que zero, mantém
+            } else if (timePassed >= DURATION_MS) {
+                // Se já expirou, reseta o tempo para dar mais uma chance
+                endTime = Date.now() + DURATION_MS;
+                localStorage.setItem('upsellExpiryTime', endTime);
+            } else {
+                // Se o tempo salvo for inválido ou muito antigo, reseta
+                endTime = Date.now() + DURATION_MS;
+                localStorage.setItem('upsellExpiryTime', endTime);
+            }
+
+        } else {
+            // Primeira visita: Seta o timer para expirar em 3 minutos
+            endTime = Date.now() + DURATION_MS;
+            localStorage.setItem('upsellExpiryTime', endTime);
+        }
+
+        function updateTimer() {
+            const now = Date.now();
+            const timeLeft = endTime - now;
+
+            if (timeLeft <= 0) {
+                timerElement.textContent = "00:00:00";
+                // Desabilitar o botão de compra
+                const buyButton = document.getElementById('kiwify-upsell-trigger-PnHJKm1');
+                if (buyButton) {
+                    buyButton.disabled = true;
+                    buyButton.style.backgroundColor = '#666';
+                    buyButton.style.cursor = 'not-allowed';
+                    buyButton.innerText = 'OFERTA EXPIRADA';
+                }
+                clearInterval(timerInterval);
+                return;
+            }
+
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            const formatTime = (time) => String(time).padStart(2, '0');
+
+            timerElement.textContent = 
+                `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer(); // Chama imediatamente para evitar delay
+    });
+</script>
+
 </body>
-    </html>
-    
+                </html>
+        
