@@ -41,43 +41,34 @@
         border: 4px solid #000000;
     }
 
-    /* CORREÇÃO KIWIFY: Forçando o estilo do botão para manter o visual forte */
+    /* CORREÇÃO CRÍTICA DO KIWIFY MODAL: Garante que o dropdown de parcelas não quebre */
+    html * {
+        box-sizing: content-box !important;
+    }
+    
+    /* Estilos adicionais e de hover para o botão principal */
     #kiwify-upsell-trigger-PnHJKm1 {
-        background-color: #2ECC70 !important; /* Verde Principal */
-        color: #FFFFFF !important; /* Texto Branco */
-        font-weight: 900 !important;
-        border: 2px solid #2ECC70 !important;
-        font-size: 1.5rem !important; 
-        box-shadow: 0 5px 20px rgba(46, 204, 112, 0.7) !important; /* Sombra Verde Forte */
+        box-shadow: 0 5px 20px rgba(46, 204, 112, 0.7) !important;
         transition: all 0.2s;
-        width: 100%; /* Garantindo largura total */
-        padding: 16px 20px;
+        /* Estilos de cor já são aplicados inline, mas garantimos o efeito */
     }
 
-    /* Efeito de hover e clique no botão */
     #kiwify-upsell-trigger-PnHJKm1:hover {
         transform: scale(1.02); 
-        background-color: #27AE60 !important; /* Verde um pouco mais escuro no hover */
+        background-color: #27AE60 !important;
         border-color: #27AE60 !important;
     }
 
     /* Estilo customizado para o link de recusa */
     #kiwify-upsell-cancel-trigger-PnHJKm1 {
-        color: #AAAAAA; /* Cinza Claro */
+        color: #AAAAAA; 
         transition: color 0.3s;
         font-size: 1rem !important; 
     }
 
     #kiwify-upsell-cancel-trigger-PnHJKm1:hover {
-        color: #FF0000; /* Vermelho no hover para reforçar a perda */
+        color: #FF0000; 
     }
-    
-    /* CORREÇÃO CRÍTICA PARA O MODAL KIWIFY (PARA FUNCIONAR NO GITHUB) */
-    /* Garante que o box-sizing não quebre a exibição do dropdown de parcelas */
-    .kiwify-modal * {
-        box-sizing: content-box !important;
-    }
-
 </style>
 
 </head>
@@ -87,8 +78,10 @@
 
     <!-- BLOCO DE ALERTA DE URGÊNCIA -->
     <div class="urgency-box p-3 rounded-lg mb-6 text-center uppercase font-black text-sm md:text-xl tracking-wider text-white">
-        <!-- ALTERAÇÃO SOLICITADA: DE "1 MINUTO" PARA "3 MINUTOS" -->
+        <!-- TIMER E TEXTO DE 3 MINUTOS -->
         <span class="animate-pulse">🛑 PARE: VOCÊ TEM 3 MINUTOS PARA MUDAR DE NÍVEL</span>
+        <!-- Elemento onde o tempo será exibido -->
+        <div id="timer" class="text-3xl font-extrabold mt-2 tracking-tighter">03:00</div>
     </div>
 
     <!-- TÍTULO AGRESSIVO E FOCO -->
@@ -99,7 +92,7 @@
         A Mentoria do Jurista é o Código Secreto que NUNCA PODE SER PUBLICADO em um livro.
     </h2>
 
-    <!-- IMAGEM DO PRODUTO EMBEDADA (Restaurada) -->
+    <!-- IMAGEM DO PRODUTO EMBEDADA -->
     <div class="text-center mb-6">
         <img src="https://i.ibb.co/MqRVSnq/C-pia-de-Black-Photo-Minimalist-Teen-Fiction-Wattpad-Book-Cover-20251107-154120-0000.png" 
              alt="Capa da Mentoria Secreta do Jurista" 
@@ -107,7 +100,7 @@
         <p class="text-gray-400 mt-2 text-sm uppercase font-semibold tracking-wider">Seu Upgrade Imediato</p>
     </div>
 
-    <!-- A COPY PRINCIPAL (Restaurada) -->
+    <!-- A COPY PRINCIPAL -->
     <p class="text-gray-100 text-lg mb-4 leading-relaxed">
         Se você leu o livro, você tem a teoria. Se você quer o Poder de Fato – as manobras e os atalhos que não se ensinam na faculdade – você precisa da minha voz.
     </p>
@@ -156,18 +149,20 @@
             <p class="text-sm font-semibold mt-2">É a sua ÚNICA e Última Chance de Acesso com este desconto.</p>
         </div>
         
-        <!-- SEU CÓDIGO SNIPPET DA KIWIFY (MANTIDO E FUNCIONAL) -->
-        <div style="text-align:center" id="kiwify-upsell-PnHJKm1" data-upsell-url="" data-downsell-url="">
+        <!-- SEU CÓDIGO SNIPPET DA KIWIFY -->
+        <!-- CORREÇÃO AQUI: display: flex e justify-content: center para centralizar o botão de largura variável -->
+        <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;" 
+             id="kiwify-upsell-PnHJKm1" data-upsell-url="" data-downsell-url="">
             
-            <!-- BOTÃO DE ACEITAÇÃO VERDE: O estilo é forçado no bloco <style> -->
+            <!-- BOTÃO DE ACEITAÇÃO VERDE: REMOVIDO o width: 100% para voltar à proporção original -->
             <button id="kiwify-upsell-trigger-PnHJKm1" 
-                style="cursor:pointer; font-weight:600; border-radius:4px; font-size:20px;"
+                style="background-color:#2ECC70;padding:16px 20px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #2ECC70;font-size:20px;"
                 onclick="this.innerText='LIBERANDO SEU ACESSO...'">
                 Sim, eu quero descobrir os segredos que não podem ser escritos no papel
             </button>
             
             <div id="kiwify-upsell-cancel-trigger-PnHJKm1" 
-                style="margin-top:1rem;cursor:pointer;text-decoration:underline;font-family:sans-serif;">
+                style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">
                 Não, eu gostaria de recusar essa oferta (E contentar-me com a informação pública)
             </div>
         </div>
@@ -185,38 +180,28 @@
 <!-- Script Kiwify (MANTIDO NO FINAL) -->
 <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
 
-<!-- JavaScript para o Timer de Urgência (AJUSTADO PARA 3 MINUTOS) -->
+<!-- JavaScript para o Timer de Urgência (MM:SS) -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const timerElement = document.getElementById('timer');
-        const expiryTime = localStorage.getItem('upsellExpiryTime');
+        let expiryTime = localStorage.getItem('upsellExpiryTime');
         let endTime;
         
         // Duração do timer: 3 minutos (3 * 60 * 1000 ms = 180000 ms)
         const DURATION_MS = 3 * 60 * 1000;
+        const now = Date.now();
 
-        if (expiryTime) {
+        // Lógica DO SEU ARQUIVO: Continua o timer se já existir, senão define um novo
+        if (!expiryTime) {
+            endTime = now + DURATION_MS;
+            localStorage.setItem('upsellExpiryTime', endTime);
+        } else {
             endTime = parseInt(expiryTime);
-            
-            // Se a expiração salva for menor que a duração de 3 minutos, atualiza para 3 minutos
-            // Isso garante que o timer sempre comece em 3 minutos na primeira visita
-            const timePassed = Date.now() - endTime;
-            if (timePassed > 0 && timePassed < DURATION_MS) {
-                // Se o tempo passou e o tempo restante é maior que zero, mantém
-            } else if (timePassed >= DURATION_MS) {
-                // Se já expirou, reseta o tempo para dar mais uma chance
-                endTime = Date.now() + DURATION_MS;
-                localStorage.setItem('upsellExpiryTime', endTime);
-            } else {
-                // Se o tempo salvo for inválido ou muito antigo, reseta
-                endTime = Date.now() + DURATION_MS;
+            // Se o tempo expirou, reinicia
+            if (endTime < now) {
+                endTime = now + DURATION_MS;
                 localStorage.setItem('upsellExpiryTime', endTime);
             }
-
-        } else {
-            // Primeira visita: Seta o timer para expirar em 3 minutos
-            endTime = Date.now() + DURATION_MS;
-            localStorage.setItem('upsellExpiryTime', endTime);
         }
 
         function updateTimer() {
@@ -224,34 +209,35 @@
             const timeLeft = endTime - now;
 
             if (timeLeft <= 0) {
-                timerElement.textContent = "00:00:00";
+                timerElement.textContent = "00:00";
                 // Desabilitar o botão de compra
                 const buyButton = document.getElementById('kiwify-upsell-trigger-PnHJKm1');
                 if (buyButton) {
                     buyButton.disabled = true;
-                    buyButton.style.backgroundColor = '#666';
+                    buyButton.style.backgroundColor = '#444'; 
                     buyButton.style.cursor = 'not-allowed';
                     buyButton.innerText = 'OFERTA EXPIRADA';
+                    buyButton.style.boxShadow = 'none';
                 }
                 clearInterval(timerInterval);
                 return;
             }
 
-            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            // Cálculo para Minutos e Segundos
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
             const formatTime = (time) => String(time).padStart(2, '0');
 
+            // Apenas Minutos:Segundos
             timerElement.textContent = 
-                `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+                `${formatTime(minutes)}:${formatTime(seconds)}`;
         }
 
+        updateTimer();
         const timerInterval = setInterval(updateTimer, 1000);
-        updateTimer(); // Chama imediatamente para evitar delay
     });
 </script>
 
 </body>
-                </html>
-        
+                                                                                       </html>
